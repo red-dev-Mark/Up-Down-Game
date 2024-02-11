@@ -5,19 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Up Down Game</title>
-    <link rel="stylesheet" href="game.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&family=Protest+Revolution&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <div class="container">
-        <h1>업&다운</h1>
-        <img src="https://media1.giphy.com/media/9DinPR8bzFsmf74j9W/giphy.gif">
-        <h2 id="hint">무조건 맞춰라</h2>
-        <h3 id="chance">남은 기회 :</h3>
-        <input type="number" id="input" placeholder="1~100까지의 숫자를 입력하세요.">
+        <h1><span class="up">UP</span> AND <span class="down">DOWN</span> GAME</h1>
+        <img src="https://i.pinimg.com/originals/06/49/70/064970ba99e47951e5aa094f8d13892c.gif">
+        <h2 id="hint">Let's Play Game!</h2>
+        <h2 id="chance">Chance :</h2>
+        <input type="number" id="input" placeholder="Enter a number from 1 to 100.">
         <button id="goBtn">Go</button>
+        <button id="resetBtn">Reset</button>
     </div>
-    <button id="resetBtn">Reset</button>
+
 
     <script src="app.js"></script>
 </body>

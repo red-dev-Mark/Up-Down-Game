@@ -8,15 +8,14 @@ const resetBtn = document.querySelector("#resetBtn");
 
 let randomNum = 0;
 let chances = 5;
-const userValueList = [];
+let userValueList = [];
 
 goBtn.disabled = false;
-chance.textContent = `남은 기회 : ${chances}`;
+chance.textContent = `Chance : ${chances}`;
 
 goBtn.addEventListener("click", play);
 resetBtn.addEventListener("click", reset);
 input.addEventListener("focus", () => (input.value = ""));
-
 
 function createRandomNum() {
   randomNum = Math.floor(Math.random() * 100) + 1;
@@ -27,43 +26,57 @@ function play() {
   const userValue = input.value;
 
   if (userValue > 100 || userValue < 1) {
-    hint.textContent = "1~100까지의 수만 입력해주세요.";
+    hint.textContent = "Only enter from 1 to 100";
+    hint.classList.remove("up", "down");
     return;
   }
   if (userValueList.includes(userValue)) {
-    hint.textContent = "이미 사용된 숫자입니다.";
+    hint.textContent = "Number already used.";
+    hint.classList.remove("up", "down");
     return;
   }
   userValueList.push(userValue);
 
   if (randomNum > userValue) {
-    img.src = "https://media0.giphy.com/media/3ov9jExd1Qbwecoqsg/200.gif";
+    img.src =
+      "https://i.pinimg.com/originals/0e/cf/f4/0ecff498c2c0fb05ee659508afa154ac.gif";
     hint.textContent = "Up!";
+    hint.classList.add("up");
     chances--;
   } else if (randomNum < userValue) {
-    img.src = "https://media.giphy.com/media/r2puuhrnjG7vy/giphy.gif";
+    img.src =
+      "https://i.pinimg.com/originals/b7/57/ed/b757edd02824bfeeddc57f826186a1d6.gif";
     hint.textContent = "Down!";
+    hint.classList.add("down");
     chances--;
   } else {
     img.src =
-      "https://media.tenor.com/images/0a81b89954678ebe228e15e35044f7a5/tenor.gif";
-    hint.textContent = "정답!";
+      "https://i.pinimg.com/originals/5d/00/d0/5d00d08c95ea9fbfb0a3e810001fb53d.gif";
+    hint.textContent = "Congratulations, You Win!";
+    hint.classList.add("finish");
     goBtn.disabled = true;
   }
 
-  if (chances === 0) goBtn.disabled = true;
-  
-  chance.textContent = `남은 기회 : ${chances}`;
+  if (chances === 0) {
+    goBtn.disabled = true;
+    hint.innerText = "You Lose..";
+    hint.classList.add("finish");
+  }
+
+  chance.textContent = `Chance : ${chances}`;
 }
 
 function reset() {
   goBtn.disabled = false;
   input.value = "";
   chances = 5;
-  chance.textContent = `남은 기회 : ${chances}`;
-  hint.textContent = "무조건 맞춰라";
+  chance.textContent = `Chance : ${chances}`;
+  hint.textContent = "Let's Play Game!";
+  userValueList = [];
+  hint.classList.remove("up", "down", "finish");
 
-  img.src = "https://media1.giphy.com/media/9DinPR8bzFsmf74j9W/giphy.gif";
+  img.src =
+    "https://i.pinimg.com/originals/06/49/70/064970ba99e47951e5aa094f8d13892c.gif";
 }
 
 createRandomNum();
