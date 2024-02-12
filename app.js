@@ -71,7 +71,7 @@ function reset() {
   input.value = "";
   chances = 5;
   chance.textContent = `Chance : ${chances}`;
-  hint.textContent = "Let's Play Game!";
+  hint.textContent = "🤩 Let's Play Game! 🤩";
   userValueList = [];
   hint.classList.remove("up", "down", "finish");
 
