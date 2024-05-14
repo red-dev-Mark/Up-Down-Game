@@ -1,6 +1,5 @@
-# Guess Random Number (Up and Down Game)
-- 아래 url을 클릭하시면 게임을 체험해보실 수 있습니다:)
-- https://mk-updowngame.netlify.app
+# Up and Down Game (숫자 맞추기 게임)
+https://mk-updowngame.netlify.app
 ---
 ## 💠 소개 💠
 - 1부터 100까지의 숫자 중 정답을 맞추는 게임입니다.
